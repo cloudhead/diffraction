@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Diffraction</title>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/diffraction.js"></script>
+	
+	<style>
+		* { margin: 0 auto; padding: 0; text-align: center; }
+		body { font-family: "Verdana", "Lucida Grande"; background-color: #ffffff; }
+		h3#quote { font-size: 40px; font-weight: 600; letter-spacing: -1px; font-variant: small-caps; }
+		div#controls { height: 50px; background-color: #BBB; padding: 10px 0px; }
+		div#spectrum { background-color: #ffffff; height: 200px; display: inline-block; margin: 100px auto; margin-top: 20px; border: 10px solid #BBB; }
+		div.bar { display: inline-block; width: 1px; height: 100%; }
+		input { font-size: 24px; padding: 4px; margin: 5px; text-align: left; }
+		label { font-size: 24px; margin: 0px 10px; }
+	</style>
+	
+</head>
+<body>
+	<div id="controls">
+		<input type="text" name="index" value="AAPL" id="index" size="4" maxlength="4">
+		<input type="text" name="year" value="1986" id="year" size="4" maxlength="4">
+		<input type="button" name="refresh" value="refresh" id="refresh">
+	</div>
+	<div id="spectrum"></div>
+</body>
+</html>
