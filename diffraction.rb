@@ -4,7 +4,7 @@ require 'json'
 require 'cgi'
 
 class Diffraction
-  MAX = 256
+  MAX = 240
   def initialize *args
     if args.count > 0      
       @quote = args.first
@@ -40,13 +40,13 @@ class Diffraction
         row[:low], 
         row[:close], 
         row[:volume], 
-        row[:adj_close] = s.delete("\n").           # Delete trailing \n
-                            split(',').             # Split into array
-                            collect { |s| s.to_i }  # Convert to ints
-        row.shift                                   # Discard the date
-        @data << row                                # Add row to dataset
+        row[:adj_close] = s.delete("\n").                 # Delete trailing \n
+                            split(',').                   # Split into array
+                            collect { |s| MAX - s.to_i }  # Convert to ints
+        row.shift                                         # Discard the date
+        @data << row                                      # Add row to dataset
       end
-      @data.shift                                   # Discard first row
+      @data.shift                                         # Discard first row
     end
     
     # If a key was provided, only return that column.
