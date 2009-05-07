@@ -19,7 +19,7 @@ class Diffraction
     response = Rack::Response.new
     
     # Break path into quote/year & discard pre and post slashes
-    quote, year = CGI.unescape( request.path_info ).
+    quote, year = CGI.unescape( request.path_info )
                      .split('.').first.split('/')    # Drop .json and split at /
                      .reject {|i| i.empty? }[1..-1]  # Clear empty strings and drop [0]
                      
