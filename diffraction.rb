@@ -30,8 +30,9 @@ class Diffraction
   end
   
   def fetch key = nil
+    puts url = URL.new( @quote, @year ).to_s
     # Open a connection to the feed
-    open( URL.new( @quote, @year ).to_s ) do |table|
+    open( url ) do |table|
       table.each do |s|
         row = {}
         row[:date], 
