@@ -23,7 +23,7 @@ class Diffraction
                   gsub(/^\/?([\w\-^\/]+)\/?$/, "\\1").
                   split('/')
     # Create a new Diffraction object, fetch the quotes, and convert to json
-    response.body = self.new( quote, year ).fetch(:close).to_json
+    response.body = Diffraction.new( quote, year ).fetch(:close).to_json
     response['Content-Type'] = 'application/json'
     response['Content-Length'] = response.body.size.to_s
     response.finish
