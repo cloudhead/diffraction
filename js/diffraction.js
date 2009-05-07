@@ -1,8 +1,7 @@
 $( document ).ready( function() {
     $("#refresh").click( function() {
         /* Fetch quotes from server */
-        $.get( $("#index").val() + '/' + $("#year").val(), function( json ) {
-            var quotes = eval( json ); /* Convert json data into object */
+        $.getJSON( $("#index").val() + '/' + $("#year").val(), function( quotes ) {
             var spectrum = '';
             var S = 70, L = 50;
             /* Create the spectrum */

@@ -40,9 +40,9 @@ class Diffraction
         row[:low], 
         row[:close], 
         row[:volume], 
-        row[:adj_close] = s.delete("\n").                 # Delete trailing \n
-                            split(',').                   # Split into array
-                            collect { |s| MAX - s.to_i }  # Convert to ints
+        row[:adj_close] = s.delete("\n")                  # Delete trailing \n
+                           .split(',')                    # Split into array
+                           .collect { |s| MAX - s.to_i }  # Convert to ints
         row.shift                                         # Discard the date
         @data << row                                      # Add row to dataset
       end
