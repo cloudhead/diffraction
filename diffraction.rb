@@ -20,8 +20,9 @@ class Diffraction
     
     # Break path into quote/year & discard pre and post slashes
     quote, year = CGI.unescape( request.path_info ).
-                  gsub(/^\/?([\w\-^\/]+)\/?$/, "\\1").
-                  split('/')
+                     .split('.').first.split('/')    # Drop .json and split at /
+                     .reject {|i| i.empty? }[1..-1]  # Clear empty strings and drop [0]
+                     
     # Create a new Diffraction object, fetch the quotes, and convert to json
     response.body = Diffraction.new( quote, year ).fetch(:close).to_json
     response['Content-Type'] = 'application/json'
